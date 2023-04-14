@@ -1,0 +1,54 @@
+{% comment %}
+  Required Arguments:
+  - mobile (boolean)
+
+  Use it like:
+
+  {% include releases.html
+    mobile=true
+  %}
+{% endcomment %}
+
+
+{% assign releases = site.releases | sort: 'year' | reverse %}
+
+{% if include.mobile %}
+  <!-- For consistency, should possibly refactor the mobile IDs to remove the work_ prefix. -->
+  <span class="anchor" id="{{ include.category_id }}_mobile"></span>
+{% else %}
+  <span class="anchor" id="{{ include.category_id }}"></span>
+{% endif %}
+
+{% for release in releases %}
+    <p
+      class='release_name collapsed'
+      data-toggle='collapse'
+      data-target='#{{ carousel_id }}'
+      href='#{{ carousel_id }}'
+    >
+      {% if include.mobile %}
+        <!-- This class isn't used for styling. See main.js  -->
+        <span class='mobile-scroll-varied-sidebar-text'>
+      {% else %}
+        <span class='desktop-scroll-varied-sidebar-text'>
+      {% endif %}
+        {{ release.name }}
+      </span>: {{ release.catalogue }}
+    </p>
+
+    <table class="table table-borderless table-sm" id="release_info">
+        <tbody>
+            <tr><th scope="row">Artist</th><td>{{ release.artist }}</td></tr>
+            <tr><th scope="row">Tracklist</th><td>{{ release.tracklist }}</td></tr>
+            <tr><th scope="row">Date</th><td>{{ release.date }}</td></tr>
+            <tr><th scope="row">Mastering</th><td>{{ release.mastering }}</td></tr>
+            <tr><th scope="row">Pressing</th><td>{{ release.pressing }}</td></tr>
+            <tr><th scope="row">Distribution</th><td>{{ release.distribution }}</td></tr>
+        </tbody>
+    </table>
+
+    {% include release_description_collapse.html release=release %}
+
+    <hr class="divider_release">
+
+{% endfor %}
