@@ -1,0 +1,245 @@
+---
+# This is a YAML comment. You need a YAML front matter section
+# like this to enable Liquid templating for this file.
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Tab Info -->
+    <link rel="icon" href="images/about/favicon.ico">
+    <title>new palm</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A Record Label">
+    <meta name="keywords" content="music, record label, los angeles">
+    <meta name="author" content="Claire Kuang">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Space+Mono&display=swap" rel="stylesheet">
+
+</head>
+<body data-spy="scroll" data-target="#sidenav" data-offset="15">
+    <h1>New Palm</h1>
+  <div id='mobile-root'>
+    <div id='scroll-to-next-project'>
+      ↓ next 
+    </div>
+
+    <nav class="navbar sticky-top" id="topnav_mobile">
+        <div class="container-fluid mt-2 no-margin" id="topnav_mobile_above_divider">
+            <div class="navbar-header-right col">
+                <a href="" class="navbar-link">N E W</a>
+            </div>
+            <div class="navbar-header-left col">
+                <a href="" class="navbar-link">P A L M</a>
+            </div>
+        </div>
+
+        <div class="container-fluid" id="mobile_navdivider">
+          <div class="p-0 col">
+              <hr class="navbar-hr mt-1 no-margin" data-toggle="collapse" data-target="#navbarToggle" aria-controls="#navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          </div>
+        </div>
+
+        <div class="collapse shadow-sm" id="navbarToggle">
+            <div class="col" id="navbarToggle_content">
+                <ul id="togglenav">
+                    <li class="nav-item-lg" data-toggle="collapse" data-target="#navbarToggle"><a href="#releases_mobile" class="nav-link">Releases</a></li>
+                    <li class="nav-item-lg" data-toggle="collapse" data-target="#navbarToggle"><a href="#mixes_mobile" class="nav-link">Mixes</a></li>
+                    <li class="nav-item-lg" data-toggle="collapse" data-target="#navbarToggle"><a href="#events_mobile" class="nav-link">Events</a></li>
+                    <li class="nav-item-lg" data-toggle="collapse" data-target="#navbarToggle"><a href="#residents_mobile" class="nav-link">Residents</a></li>
+                    <li class="nav-item-lg" data-toggle="collapse" data-target="#navbarToggle"><a href="#about_mobile" class="nav-link">About</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
+
+    <main class="mobile-main">
+
+        <br>
+        <br>
+        <!--
+        <p id="quote_main">
+            Some landing page quote
+        </p>
+        -->
+        <hr class="divider_topmost">
+
+        <span class="anchor"></span>
+
+        <!-- RELEASES ----------------------------------------------------------------->
+        {% include releases.html
+        mobile=true
+        section_id='releases'
+        %}
+
+        <!-- MIXES -------------------------------------------------------------->
+        {% include mixes.html
+        mobile=true
+        section_id='mixes'
+        %}
+
+        <!-- EVENTS ------------------------------------------------------------->
+        {% include events.html
+        mobile=true
+        section_id='events'
+        %}
+
+        <!-- RESIDENTS ------------------------------------------------------------------>
+        {% include residents.html
+        mobile=true
+        section_id='residents'
+        %}
+
+        <!-- ABOUT ------------------------------------------------------------------>
+        <span class="anchor" id="about_mobile"></span>
+        <p class="section_title">
+            <span class='desktop-scroll-varied-sidebar-text'>About</span>
+        </p>
+        <p>
+            A Los Angeles record Label founded by <a class="about-link" href="https://link.here">PAUL</a>.
+            Website built by <a class="about-link" href="https://www.instagram.com/clrkng">Claire Kuang</a>.
+        </p>
+        <br>
+
+    </main>
+
+  </div>
+
+  <div id='desktop-root'>
+
+    <!-- Content -->
+    <div class="container-fluid h-10" id="content">
+
+        <!-- Top nav -->
+        <nav class="navbar sticky-top navbar-inverse" id="topnav_desktop">
+            <div class="navbar-header-left col-md-2">
+                <a href="" class="navbar-link">C L R</a>
+            </div>
+            <div class="col-sm-12 col-md-8 p-0" id="desktop_navdivider">
+                <hr class="navbar-hr">
+            </div>
+            <div class="navbar-header-right col-md-2">
+                <a href="" class="navbar-link">K N G</a>
+            </div>
+        </nav>
+
+        <div class="row h-100" id="content_main">
+
+            <!--Side nav-->
+            <aside class="col-md-2">
+                <div class="sticky-top" id="sidenav">
+                    <ul id="sidenav-link-list" class="nav flex-md-column flex-row justify-content-between">
+                        <li class="nav-item"><a href="#releases" class="nav-link active">Releases</a></li>
+                        <li class="nav-item"><a href="#mixes" class="nav-link">Mixes</a></li>
+                        <li class="nav-item"><a href="#events" class="nav-link">Events</a></li>
+                        <li class="nav-item"><a href="#residents" class="nav-link">Residents</a></li>
+                        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    </ul>
+                    <div id='scroll-varied-section-description'>
+                    </div>
+                </div>
+            </aside>
+
+            <!--MAIN-->
+            <main class="col-sm-12 col-md-8 py-5 shadow-sm" id="main-centerwidth">
+                <div class="row">
+                    <div class="col" id="content_body">
+
+                        <br>
+                        <br>
+                        <!--
+                        <p id="quote_main">
+                            Some landing page quote here
+                        </p>
+                        -->
+                        <hr class="divider_topmost">
+
+                        <span class="anchor" id="work"></span>
+
+                        <!-- RELEASES ----------------------------------------------------------------->
+                        {% include releases.html
+                        mobile=false
+                        section_id='releases'
+                        %}
+
+                        <!-- MIXES -------------------------------------------------------------------->
+                        {% include mixes.html
+                        mobile=false
+                        section_id='mixes'
+                        %}
+
+                        <!-- EVENTS ------------------------------------------------------------------->
+                        {% include events.html
+                        mobile=false
+                        section_id='events'
+                        %}
+
+                        <!-- RESIDENTS ---------------------------------------------------------------->
+                        {% include residents.html
+                        mobile=false
+                        section_id='residents'
+                        %}
+
+                        <!-- ABOUT -------------------------------------------------------------------->
+
+                        <span class="anchor" id="about"></span>
+                        <p class="section_title">
+                            <span class='desktop-scroll-varied-sidebar-text'>About</span>
+                        </p>
+                        <p>
+                            A Los Angeles record Label founded by <a class="about-link" href="https://link.here">PAUL</a>.
+                            Website built by <a class="about-link" href="https://www.instagram.com/clrkng">Claire Kuang</a>.
+                        </p>
+
+                        <br>
+
+                    </div>
+                </div>
+            </main>
+
+            <!--Side info-->
+            <aside class="col-md-2">
+                <div class="sticky-top" id="sideinfo">
+                    <ul class="nav flex-md-column flex-row justify-content-between">
+                        <li class="nav-item-md" id="year"></li>
+                        <li class="nav-item-sm" id="time"></li>
+                        <li class="nav-item-sm"> los angeles </li>
+                    </ul>
+
+                    <div>
+                        <p id ="next-arrow-desktop" class="nav_arrow collapsed"></p>
+                    </div>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+
+  </div>
+
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+
+<!-- Custom JS -->
+<script src="js/main.js"></script>
+
+</html>
