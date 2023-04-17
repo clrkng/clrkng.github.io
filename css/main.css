@@ -1,1 +1,448 @@
-﻿
+﻿@media all and (max-width: 900px) {
+  #desktop-root {
+    display: none;
+  }
+}
+
+@media all and (min-width: 901px) {
+  #mobile-root {
+    display: none;
+  }
+}
+
+title, h1 {
+    display: none;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.ratio-container {
+  /* Any percent for padding is a percent of the width. So this gives a 4:3
+  aspect ratio. See https://css-tricks.com/aspect-ratio-boxes/ */
+  padding-top: 75%;
+  width: 100%;
+  position: relative;
+}
+
+.fit-image-to-container {
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.mobile-main {
+  margin-left: 2rem;
+  margin-right: 2rem;
+  font-weight: 100;
+}
+
+
+body, html {
+    height:auto;
+    min-height:100%;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    background: #fffef3;
+}
+
+.row {
+    margin:0;
+}
+
+#content, #mobile_navdivider {
+    margin:0;
+    padding:0;
+}
+
+#content_main {
+    justify-content: center;
+}
+
+#main-centerwidth {
+    max-width: 800px;
+    top: -6rem;
+    padding-left: 2.7rem;
+    padding-right: 2.7rem;
+    background: linear-gradient(white, #FFFEF7);
+}
+
+/*--- navigation bars ---*/
+
+#topnav_desktop {
+    justify-content: center;
+}
+
+nav {
+    /*background-image: linear-gradient(#f2f8ff, rgba(255, 255, 255, 0));*/
+    background-image: linear-gradient(rgba(100, 100, 100, 0.90), rgba(100, 100, 100, 0.1), rgba(255, 255, 255, 0));
+    cursor: crosshair;
+    height: 6rem;
+    padding: 0 !important;
+    margin: 0;
+}
+
+.navbar {
+    vertical-align:bottom;
+    align-items:flex-end;
+}
+
+.navbar-header-left {
+    text-align:right;
+    padding-left: 1.8rem;
+    padding-right: 1.8rem;
+}
+
+.navbar-header-right {
+    text-align: left;
+    padding-left: 1.8rem;
+    padding-right: 1.8rem;
+}
+
+#desktop_navdivider {
+    background-color: transparent;
+
+    /* Because of the existing col-sm-12 and col-md-8 classes on this
+       element, when the page width increases the columns will get
+       wider in proportion to the ratios in those styles.
+
+       To keep the top bar from getting wider (and thus putting any
+       remaining width increases into the other two columns) we just
+       limit the max width, and override the max-width style from the
+       col-sm-12 and col-md-8 classes. This width value is arbitrary
+       and can be changed.
+     */
+    max-width: 800px;
+}
+
+.navbar-hr {
+    width: 100%;
+    max-width:800px;
+    height: 1.6em;
+    background-color: black;
+    margin-bottom: 0.4em;
+    /*box-shadow: 1px 2px 6px 0 rgba(0,0,0,.2);*/
+}
+.navbar-link {
+    color: #000000;
+    cursor: crosshair;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    letter-spacing: -3px;
+    float: none;
+    margin:0;
+    padding:0;
+    bottom:0 !important;
+    line-height: 100%;
+}
+.navbar-link:hover {
+    color: rgba(0, 0, 0, 0.20);
+    text-decoration: none;
+}
+
+.anchor {
+  display: block;
+  visibility: hidden;
+}
+
+#topnav_mobile {
+    height: 6rem;
+}
+
+#togglenav {
+    padding: 1.8rem;
+    list-style: none;
+    background-color: black;
+    text-align: left;
+    color: white;
+    margin: 0;
+    height: 15rem;
+}
+
+#navbarToggle {
+    width: 100%;
+}
+#navbarToggle_content {
+    padding:0;
+}
+
+#togglenav .nav-item-lg,
+#togglenav .nav-item-sm {
+    line-height: 0.9em;
+    letter-spacing: 0.1rem;
+    font-size: small;
+    color: white;
+    font-weight: bolder;
+}
+
+#togglenav .nav-link {
+    cursor: crosshair;
+    padding: 0.9em 0;
+    margin: 0;
+    color: white;
+}
+
+#togglenav .nav-link:focus {
+    color: black;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor:crosshair;
+    font-size:15px;
+    font-weight:400;
+    letter-spacing:0.1rem;
+}
+
+#togglenav ul {
+    display: block;
+}
+
+#mobile_navdivider aside {
+    padding-left: 1.8rem;
+    padding-right: 1.8rem;
+    letter-spacing: 0.1rem;
+}
+
+#sidenav {
+    top: 9em;
+    text-align: right;
+}
+
+#sidenav .nav-item {
+    line-height: 1rem;
+    font-size: small;
+    color: black;
+}
+
+#sidenav .nav-link {
+    cursor: crosshair;
+    padding:0;
+    margin:0;
+    color: black;
+}
+
+#sidenav .nav-link:hover {
+    color: rgba(0, 0, 0, 0.20) ;
+}
+
+#sidenav .nav-link.active,
+#sidenav .nav-link:focus{
+    font-size: small;
+    font-weight:800;
+}
+
+#scroll-varied-section-description {
+    padding-top: 67%;
+    overflow-wrap: break-word;
+}
+
+#sideinfo {
+    top: 9em;
+}
+#sideinfo .nav-item-md {
+    font-size: small;
+    font-weight:800;
+}
+#sideinfo .nav-item-sm {
+    font-size: x-small;
+}
+
+#next-arrow-desktop{
+    padding-top:85%;
+}
+#next-arrow-desktop:hover{
+    cursor:crosshair;
+}
+
+
+/*--- body styling ---*/
+#content_body {
+    max-width: 100%;
+    padding-top:0.7em;
+    font-size: 14px;
+    letter-spacing: 0.05rem;
+    text-align: left;
+}
+
+#main_title {
+    font-size: 48px;
+    font-weight: 100;
+    letter-spacing: 0.2rem;
+    vertical-align: bottom;
+    margin-bottom: 1rem;
+}
+
+.section_title {
+    font-size: x-large;
+    color: moccasin;
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    vertical-align: bottom;
+    padding: 0.5rem 0;
+    font-style:italic;
+}
+
+.project_title {
+    font-size: x-large;
+    font-weight: lighter;
+    letter-spacing: 0.1rem;
+    text-align: left;
+    margin-bottom: 2rem;
+    cursor: crosshair;
+}
+
+.project_title:hover {
+    text-decoration:line-through;
+}
+
+#body_title_major {
+    font-size: larger;
+    font-weight: bold;
+    text-align: left;
+    letter-spacing: 0.1rem;
+    padding-top:1.2rem;
+}
+#body_title_minor {
+    font-weight: bold;
+    padding-top: 1rem;
+}
+
+.no-margin {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.table {
+    font-size: small;
+    letter-spacing: 0.1rem;
+    margin-bottom: 2rem;
+}
+
+.table th {
+    width: 4rem;
+    padding-left: 0;
+}
+
+.divider, .divider_topmost, .divider_project {
+    /*background-color: moccasin;*/
+    background-color: black;
+    height: 2px;
+    border: 0;
+    padding: 0;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+#quote_main {
+    font-family: 'Space Mono', monospace, 'Courier New',Arial;
+    font-size: small;
+    text-align: justify;
+    margin-left: 6%;
+    margin-right: 6%;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+#quote_text {
+    font-family: 'Space Mono', monospace, 'Courier New',Arial;
+    font-size: small;
+    text-align: center;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.about-link {
+    color: black;
+    font-weight:500;
+    padding:0.4em;
+    letter-spacing:2px;
+    font-size:medium;
+    background-clip: content-box !important;
+    background-color: moccasin !important;
+}
+.about-link:hover{
+    text-decoration:line-through;
+    color:black;
+    cursor:crosshair;
+}
+.tab {
+    padding-left: 1.5rem;
+}
+
+.collapse_arrow {
+    font-size: large;
+}
+.collapse_arrow:hover{
+    cursor:crosshair;
+    background: black;
+    color: white;
+}
+
+.collapse_arrow.collapsed:before
+{
+    content:'+ more' ;
+    font-style: italic;
+    font-size: 18px;
+}
+
+.collapse_arrow:before
+{
+    content:'- less' ;
+    font-style: italic;
+    font-size: 18px;
+}
+
+.nav_arrow {
+    font-size: large;
+}
+
+.nav_arrow.collapsed:before {
+    content: '↓ next';
+    font-style: italic;
+    font-size: 18px;
+}
+
+.nav_arrow:before {
+    content: '↑ top';
+    font-style: italic;
+    font-size: 18px;
+}
+
+#scroll-to-next-section {
+  z-index: 9;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1rem;
+  padding: 0.5rem;
+
+  color:white;
+  font-style:italic;
+  letter-spacing: 0.1rem;
+
+  /* Without setting this, the background will be transparent and the
+     text will overlap. */
+    background-color: rgba(0, 0, 0, 1);
+    border-radius: 2px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+#scroll-to-next-section:hover {
+  cursor: pointer;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.25);
+}
