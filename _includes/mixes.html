@@ -1,0 +1,50 @@
+{% comment %}
+  Required Arguments:
+  - mobile (boolean)
+
+  Use it like:
+
+  {% include mixes.html
+    mobile=true
+  %}
+{% endcomment %}
+
+
+{% assign mixes = site.mixes | sort: 'year' | reverse %}
+
+{% if include.mobile %}
+  <!-- For consistency, should possibly refactor the mobile IDs to remove the work_ prefix. -->
+  <span class="anchor" id="{{ include.section_id }}_mobile"></span>
+{% else %}
+  <span class="anchor" id="{{ include.section_id }}"></span>
+{% endif %}
+
+{% for mix in mixes %}
+    <p
+      class='mix_name collapsed'
+      data-toggle='collapse'
+      data-target='#{{ carousel_id }}'
+      href='#{{ carousel_id }}'
+    >
+      {% if include.mobile %}
+        <!-- This class isn't used for styling. See main.js  -->
+        <span class='mobile-scroll-varied-sidebar-text'>
+      {% else %}
+        <span class='desktop-scroll-varied-sidebar-text'>
+      {% endif %}
+        {{mix.number}}
+        </span>: {{ mix.name }}
+    </p>
+
+    <table class="table table-borderless table-sm" id="mix_info">
+        <tbody>
+            <tr><th scope="row">Year</th><td>{{ mix.year }}</td></tr>
+            <tr><th scope="row">Soundcloud</th><td>{{ mix.soundcloud }}</td></tr>
+        </tbody>
+    </table>
+
+    <p>{{ mix.description }}</p>
+
+    <hr class="divider_item">
+
+{% endfor %}

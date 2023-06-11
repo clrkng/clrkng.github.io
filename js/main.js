@@ -4,70 +4,59 @@
 
 // Use an IIFE to avoid adding or affecting variables in the global scope.
 (function() {
+  
+  // If on desktop, the user clicks outside the main content body (and isn't clicking a
+  // link in the left column), collapse all collapsible elements.
+  document.addEventListener('click', function (event) {
+      // For performance, re-queue this at the end of the JS event loop's
+      // current execution queue so it doesn't slow down rendering any immediate
+      // responses to the click.
+      setTimeout(function () {
+          var $target = $(event.target);
 
-    var updateDateTime = function () {
-      var d = new Date();
-      document.getElementById("year").innerHTML = d.getFullYear();
-      document.getElementById("time").innerHTML = d.getHours() + ":" + d.getMinutes() + ":" + (("00" + d.getSeconds()).slice(-2));
-      setTimeout(updateDateTime, 1000);
-    }
-  
-    updateDateTime();
-  
-    // From: https://pqina.nl/blog/applying-styles-based-on-the-user-scroll-position-with-smart-css/
-    // This is not the original debounce code: I ran it through https://babeljs.io/repl for
-    // compatibility with out-of-date browsers, which is why it's not easy to read.
-    //
-    // Used to improve performance for interactive things based on the browser's repaint schedule,
-    // search "requestAnimationFrame" for more info.
-    var debounce = function debounce(fn) {
-      // This holds the requestAnimationFrame reference, so we can cancel it if we wish
-      var frame;
-  
-      // The debounce function returns a new function that can receive a variable number of arguments
-      return function () {
-        for (var _len = arguments.length, params = new Array(_len), _key = 0; _key < _len; _key++) {
-          params[_key] = arguments[_key];
-        }
-  
-        // If the frame variable has been defined, clear it now, and queue for next frame
-        if (frame) {
-          cancelAnimationFrame(frame);
-        } // Queue our function call for the next frame
-  
-        frame = requestAnimationFrame(function () {
-          // Call our function and pass any params we received
-          fn.apply(void 0, params);
-        });
-      };
-    };
-  
-  
-      // If on desktop, the user clicks outside the main content body (and isn't clicking a
-      // link in the left column), collapse all collapsible elements.
-      document.addEventListener('click', function (event) {
-          // For performance, re-queue this at the end of the JS event loop's
-          // current execution queue so it doesn't slow down rendering any immediate
-          // responses to the click.
-          setTimeout(function () {
-              var $target = $(event.target);
-  
-              // if the click was anywhere on the topnav
-              if ($target.closest('#topnav_mobile_above_divider').length !== 0 ||
-                  $target.closest('#topnav_desktop').length !== 0) {
-                  $('.collapse').collapse('hide');
-  
-                  $([document.documentElement, document.body]).animate({
-                      scrollTop: 0,
-                      behavior: 'smooth'
-                  }, 0);
-              }
-              else {
-                  return;
-              }
-          });
+          // if the click was anywhere on the topnav
+          if ($target.closest('#topnav_mobile_above_divider').length !== 0 ||
+              $target.closest('#topnav_desktop').length !== 0) {
+              $('.collapse').collapse('hide');
+
+              $([document.documentElement, document.body]).animate({
+                  scrollTop: 0,
+                  behavior: 'smooth'
+              }, 0);
+          }
+          else {
+              return;
+          }
       });
+  });
   
+  // collapsible section fxs
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+
+      var content = this.nextElementSibling;
+
+      // if this item is active, close the content
+      if (this.classList.contains("active"))
+      {
+        content.style.maxHeight = null;
+      }
+      // otherwise, close all other collapsibles and open the content
+      else
+      {
+        for(item of coll){ 
+          if (item.classList)
+          item.classList.remove("active");
+          item.nextElementSibling.style.maxHeight = null;
+        }
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+      this.classList.toggle("active"); // toggle the active state of this collapsible
+    });
+  }
   
     var isMobile = function () {
       return window.innerWidth <= 900;
@@ -76,114 +65,9 @@
     var rangeStart = function (elem) {
       return $(elem).offset().top - 125; //125 is height of navbar, fudge factor for rangestart
       };
-  
-    // Helper code used for the scroll-varied sidebar text and the
-    // next section button.
-    // Requires jQuery, expects it to be defined as $.
-    var currentScrollSections = function () {
-      var scrollElements = $(
-        isMobile() ? '.mobile-scroll-varied-sidebar-text' : '.desktop-scroll-varied-sidebar-text'
-      ).map(function (index, elem) {
-        return {
-          elem: elem,
-          text: $(elem).text().trim(),
-        };
-      }).toArray();
-  
-      scrollElements.forEach(function (elemObject) {
-        // The range at which to start displaying the text is when the element is scrolled
-        // to the bottom of the nav bar
-        elemObject.rangeStart = rangeStart(elemObject.elem);
-      });
-  
-      // Elements further down the page appear later in the array.
-      scrollElements.sort(function (a, b) { return a.rangeStart - b.rangeStart; });
-  
-      scrollElements[0].rangeStart = -1;
-      return scrollElements;
-    };
-  
-    // Returns an object of the form:
-    // {
-    //    elem:
-    //    text: "..."
-    // }
-    //
-    // Where the value of 'elem' is an element with the scroll-varied-sidebar-text
-    // CSS class, used as an anchor for that feature.
-    var currentlyScrolledSection = function () {
-      var last = null;
-      var found = null;
-      var currentScrollY = window.scrollY;
-  
-      // If we don't add this dummy element at the end, the text won't update on
-      // the last time through the loop, and won't work for the last project on
-      // the page.
-      // Javascript doesn't have a built-in way to break out of loops early, so
-      // do that in a hacky way by returning true from Array#some.
-      (currentScrollSections().concat({
-        rangeStart: Number.POSITIVE_INFINITY,
-      })).some(function (elem) {
-        // On the first loop, just set up last as the first element:
-        if (last === null) {
-          last = elem;
-          return false;
-        }
-  
-        if (last.rangeStart < currentScrollY && currentScrollY < elem.rangeStart) {
-          found = last;
-          return true;
-        }
-  
-        last = elem;
-        return false;
-      });
-  
-      if (found === null) {
-        // console.log();
-        throw("Error: didn't find a scroll-varied-sidebar-text element on the page.");
-      }
-      return found;
-    };
-  
-  
-    // Actually set the inner text of the target element based on the current
-    // scroll position.
-      var onScroll = function () {
-          var elementToUpdateSelector = '#scroll-varied-section-description'
-  
-          var currentSection = currentlyScrolledSection();
-          var $target = $(elementToUpdateSelector)
-          if ($target.length !== 1) {
-              alert('Error: expected exactly 1 result for selector: ' + elementToUpdateSelector);
-          }
-  
-          $target.text(currentSection.text);
-      };
-  
-    // Run the debounced onScroll when the document scrolls.
-    document.addEventListener('scroll', debounce(onScroll), { passive: true });
-  
-    // Run the function for the first time so the content looks good before any
-    // scrolling has occurred.
-      onScroll();
-  
-  
-    $('#scroll-to-next-project, #next-arrow-desktop').click(function () {
-      var sections = currentScrollSections();
-      var currentSection = currentlyScrolledSection();
-  
-        for (i = 0; i < sections.length; i++) {
-  
-        if (currentSection.rangeStart === sections[i].rangeStart && i !== (sections.length - 1)) {
-          $([document.documentElement, document.body]).animate({
-              scrollTop: rangeStart(sections[i + 1].elem) + 2, // 2 is height of the divider bar essentially, fudge factor based on rangestart
-              behavior: 'smooth'
-          }, 0);
-          break;
-        }
-      }
-    });
+
+    
+      
   
   })();
   

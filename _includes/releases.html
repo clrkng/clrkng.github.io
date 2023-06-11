@@ -14,31 +14,19 @@
 
 {% if include.mobile %}
   <!-- For consistency, should possibly refactor the mobile IDs to remove the work_ prefix. -->
-  <span class="anchor" id="{{ include.category_id }}_mobile"></span>
+  <span class="anchor" id="{{ include.section_id }}_mobile"></span>
 {% else %}
-  <span class="anchor" id="{{ include.category_id }}"></span>
+  <span class="anchor" id="{{ include.section_id }}"></span>
 {% endif %}
 
 {% for release in releases %}
-    <p
-      class='release_name collapsed'
-      data-toggle='collapse'
-      data-target='#{{ carousel_id }}'
-      href='#{{ carousel_id }}'
-    >
-      {% if include.mobile %}
-        <!-- This class isn't used for styling. See main.js  -->
-        <span class='mobile-scroll-varied-sidebar-text'>
-      {% else %}
-        <span class='desktop-scroll-varied-sidebar-text'>
-      {% endif %}
-        {{ release.name }}
-      </span>: {{ release.catalogue }}
-    </p>
+  <button class="collapsible">{{ release.catalogue }} {{ release.artist }} {{ release.name }}</button>
+  <div class="release_content">
 
+      
+  </div>
     <table class="table table-borderless table-sm" id="release_info">
         <tbody>
-            <tr><th scope="row">Artist</th><td>{{ release.artist }}</td></tr>
             <tr><th scope="row">Tracklist</th><td>{{ release.tracklist }}</td></tr>
             <tr><th scope="row">Date</th><td>{{ release.date }}</td></tr>
             <tr><th scope="row">Mastering</th><td>{{ release.mastering }}</td></tr>
@@ -47,8 +35,6 @@
         </tbody>
     </table>
 
-    {% include release_description_collapse.html release=release %}
-
-    <hr class="divider_release">
+    {% include item_description_collapse.html item=release %}
 
 {% endfor %}

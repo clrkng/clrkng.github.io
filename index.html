@@ -24,15 +24,14 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
     <!-- Font -->
-    <link href="https://fonts.googleapis.com/css?family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Spline+Sans+Mono" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body data-spy="scroll" data-target="#sidenav" data-offset="15">
     <h1>New Palm</h1>
   <div id='mobile-root'>
-    <div id='scroll-to-next-project'>
-      ↓ next 
-    </div>
 
     <nav class="navbar sticky-top" id="topnav_mobile">
         <div class="container-fluid mt-2 no-margin" id="topnav_mobile_above_divider">
@@ -53,11 +52,11 @@
         <div class="collapse shadow-sm" id="navbarToggle">
             <div class="col" id="navbarToggle_content">
                 <ul id="togglenav">
-                    <li class="nav-item-lg" data-toggle="collapse" data-target="#navbarToggle"><a href="#releases_mobile" class="nav-link">Releases</a></li>
-                    <li class="nav-item-lg" data-toggle="collapse" data-target="#navbarToggle"><a href="#mixes_mobile" class="nav-link">Mixes</a></li>
-                    <li class="nav-item-lg" data-toggle="collapse" data-target="#navbarToggle"><a href="#events_mobile" class="nav-link">Events</a></li>
-                    <li class="nav-item-lg" data-toggle="collapse" data-target="#navbarToggle"><a href="#residents_mobile" class="nav-link">Residents</a></li>
-                    <li class="nav-item-lg" data-toggle="collapse" data-target="#navbarToggle"><a href="#about_mobile" class="nav-link">About</a></li>
+                    <li data-id="releases_mobile" class="nav-item-lg" data-toggle="collapse" data-target="#navbarToggle"><a href="#releases_mobile" class="nav-link">RELEASES</a></li>
+                    <li data-id="mixes_mobile" class="nav-item-lg" data-toggle="collapse" data-target="#navbarToggle"><a href="#mixes_mobile" class="nav-link">MIXES</a></li>
+                    <li data-id="events_mobile" class="nav-item-lg" data-toggle="collapse" data-target="#navbarToggle"><a href="#events_mobile" class="nav-link">EVENTS</a></li>
+                    <li data-id="residents_mobile" class="nav-item-lg" data-toggle="collapse" data-target="#navbarToggle"><a href="#residents_mobile" class="nav-link">RESIDENTS</a></li>
+                    <li data-id="about_mobile"class="nav-item-lg active" data-toggle="collapse" data-target="#navbarToggle"><a href="#about_mobile" class="nav-link">ABOUT</a></li>
                 </ul>
             </div>
         </div>
@@ -67,52 +66,52 @@
 
     <main class="mobile-main">
 
-        <br>
-        <br>
-        <!--
-        <p id="quote_main">
-            Some landing page quote
-        </p>
-        -->
-        <hr class="divider_topmost">
+        <div id="content_body">
 
-        <span class="anchor"></span>
+            <!-- RELEASES ----------------------------------------------------------------->
+            <div id="releases_mobile"> 
+                {% include releases.html
+                mobile=true
+                section_id='releases'
+                %}
+            </div>
 
-        <!-- RELEASES ----------------------------------------------------------------->
-        {% include releases.html
-        mobile=true
-        section_id='releases'
-        %}
+            <!-- MIXES -------------------------------------------------------------->
+            <div id="mixes_mobile">
+                {% include mixes.html
+                mobile=true
+                section_id='mixes'
+                %}
+            </div>
 
-        <!-- MIXES -------------------------------------------------------------->
-        {% include mixes.html
-        mobile=true
-        section_id='mixes'
-        %}
+            <!-- EVENTS ------------------------------------------------------------->
+            <div id="events_mobile">
+                {% include events.html
+                mobile=true
+                section_id='events'
+                %}
+            </div>
 
-        <!-- EVENTS ------------------------------------------------------------->
-        {% include events.html
-        mobile=true
-        section_id='events'
-        %}
+            <!-- RESIDENTS ------------------------------------------------------------------>
+            <div id="residents_mobile">
+                {% include residents.html
+                mobile=true
+                section_id='residents'
+                %}
+            </div>
 
-        <!-- RESIDENTS ------------------------------------------------------------------>
-        {% include residents.html
-        mobile=true
-        section_id='residents'
-        %}
-
-        <!-- ABOUT ------------------------------------------------------------------>
-        <span class="anchor" id="about_mobile"></span>
-        <p class="section_title">
-            <span class='desktop-scroll-varied-sidebar-text'>About</span>
-        </p>
-        <p>
-            A Los Angeles record Label founded by <a class="about-link" href="https://link.here">PAUL</a>.
-            Website built by <a class="about-link" href="https://www.instagram.com/clrkng">Claire Kuang</a>.
-        </p>
-        <br>
-
+            <!-- ABOUT ------------------------------------------------------------------>
+            <div id="about_mobile"> 
+                <p class="section_title">
+                    <span class='desktop-scroll-varied-sidebar-text'>About</span>
+                </p>
+                <p>
+                    A Los Angeles record Label founded by <a class="about-link" href="https://link.here">PAUL</a>.
+                    Website built by <a class="about-link" href="https://www.instagram.com/clrkng">Claire Kuang</a>.
+                </p>
+                <br>
+            </div>
+        </div>
     </main>
 
   </div>
@@ -120,111 +119,77 @@
   <div id='desktop-root'>
 
     <!-- Content -->
-    <div class="container-fluid h-10" id="content">
+    <div class="container-fluid h-10" id="desktop_content">
 
-        <!-- Top nav -->
-        <nav class="navbar sticky-top navbar-inverse" id="topnav_desktop">
-            <div class="navbar-header-left col-md-2">
-                <a href="" class="navbar-link">C L R</a>
+        <!-- HEADER -->
+        <nav class="navbar sticky-top" id="header_desktop">
+            <div class="navbar-header-left col-md-3" >
+                <a href="" class="navbar-link">NEW</a>
             </div>
-            <div class="col-sm-12 col-md-8 p-0" id="desktop_navdivider">
-                <hr class="navbar-hr">
+            <div class="flex-column">
+                <ul id="icons">
+                    <li class="d-inline"><a href="https://www.instagram.com/new.palm/" class="icon-link"><i class="fa fa-instagram"></i></a></li>
+                    <li class="d-inline"><a href="https://soundcloud.com/newpalm" class="icon-link"><i class="fa fa-soundcloud"></i></a></li>
+                </ul>
             </div>
-            <div class="navbar-header-right col-md-2">
-                <a href="" class="navbar-link">K N G</a>
+            <div class="navbar-header-right col-md-3">
+                <a href="" class="navbar-link">PALM</a>
             </div>
         </nav>
 
-        <div class="row h-100" id="content_main">
-
-            <!--Side nav-->
-            <aside class="col-md-2">
-                <div class="sticky-top" id="sidenav">
-                    <ul id="sidenav-link-list" class="nav flex-md-column flex-row justify-content-between">
-                        <li class="nav-item"><a href="#releases" class="nav-link active">Releases</a></li>
-                        <li class="nav-item"><a href="#mixes" class="nav-link">Mixes</a></li>
-                        <li class="nav-item"><a href="#events" class="nav-link">Events</a></li>
-                        <li class="nav-item"><a href="#residents" class="nav-link">Residents</a></li>
-                        <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                    </ul>
-                    <div id='scroll-varied-section-description'>
-                    </div>
-                </div>
-            </aside>
-
-            <!--MAIN-->
-            <main class="col-sm-12 col-md-8 py-5 shadow-sm" id="main-centerwidth">
-                <div class="row">
-                    <div class="col" id="content_body">
-
-                        <br>
-                        <br>
-                        <!--
-                        <p id="quote_main">
-                            Some landing page quote here
-                        </p>
-                        -->
-                        <hr class="divider_topmost">
-
-                        <span class="anchor" id="work"></span>
-
-                        <!-- RELEASES ----------------------------------------------------------------->
-                        {% include releases.html
+        <main>
+            <div id="content_main">
+                <!-- RELEASES ----------------------------------------------------------------->
+                <button class="collapsible">RELEASES</button>
+                <div class="section_content" id="releases">
+                    <hr class="divider_item">
+                    {% include releases.html
                         mobile=false
                         section_id='releases'
                         %}
-
-                        <!-- MIXES -------------------------------------------------------------------->
-                        {% include mixes.html
-                        mobile=false
-                        section_id='mixes'
-                        %}
-
-                        <!-- EVENTS ------------------------------------------------------------------->
-                        {% include events.html
-                        mobile=false
-                        section_id='events'
-                        %}
-
-                        <!-- RESIDENTS ---------------------------------------------------------------->
-                        {% include residents.html
-                        mobile=false
-                        section_id='residents'
-                        %}
-
-                        <!-- ABOUT -------------------------------------------------------------------->
-
-                        <span class="anchor" id="about"></span>
-                        <p class="section_title">
-                            <span class='desktop-scroll-varied-sidebar-text'>About</span>
-                        </p>
-                        <p>
-                            A Los Angeles record Label founded by <a class="about-link" href="https://link.here">PAUL</a>.
-                            Website built by <a class="about-link" href="https://www.instagram.com/clrkng">Claire Kuang</a>.
-                        </p>
-
-                        <br>
-
-                    </div>
                 </div>
-            </main>
-
-            <!--Side info-->
-            <aside class="col-md-2">
-                <div class="sticky-top" id="sideinfo">
-                    <ul class="nav flex-md-column flex-row justify-content-between">
-                        <li class="nav-item-md" id="year"></li>
-                        <li class="nav-item-sm" id="time"></li>
-                        <li class="nav-item-sm"> los angeles </li>
-                    </ul>
-
-                    <div>
-                        <p id ="next-arrow-desktop" class="nav_arrow collapsed"></p>
-                    </div>
+            
+                <!-- MIXES -------------------------------------------------------------------->
+                <button class="collapsible">MIXES</button>
+                <div class="section_content" id="mixes">
+                    <hr class="divider_item">
+                    {% include mixes.html
+                    mobile=false
+                    section_id='mixes'
+                    %}
                 </div>
-            </aside>
 
-        </div>
+                <!-- EVENTS ------------------------------------------------------------------->
+                <button class="collapsible">EVENTS</button>
+                <div class="section_content" id="events">
+                    <hr class="divider_item">
+                    {% include events.html
+                    mobile=false
+                    section_id='events'
+                    %}
+                </div>
+
+                <!-- RESIDENTS ---------------------------------------------------------------->
+                <button class="collapsible">RESIDENTS</button>
+                <div class="section_content" id="residents">
+                    <hr class="divider_item">
+                    {% include residents.html
+                    mobile=false
+                    section_id='residents'
+                    %}
+                </div>
+
+                <!-- ABOUT -------------------------------------------------------------------->
+                <button class="collapsible">ABOUT</button>
+                <div class="section_content" id="about"> 
+                    <p>
+                        A Los Angeles record Label founded by <a class="about-link" href="https://link.here">PAUL</a>.
+                        Website built by <a class="about-link" href="https://www.instagram.com/clrkng">Claire Kuang</a>.
+                    </p>
+                </div>
+            </div>
+        </main>
+        
     </div>
 
   </div>
