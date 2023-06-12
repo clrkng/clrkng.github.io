@@ -103,24 +103,32 @@ main {
 }
 
 #content_main{
-    width: 100%;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.595);
 }
 
 /*--- sections ---*/
 .collapsible {
     height: 7rem;
-    width: 90%;
-    background: #4800ff17;
-    color: #000000;
+    width: 96%;
+    background: #9d00ff44;
+    color: #ffffff;
     border: none !important;
+    border-radius: 2rem;
+    box-shadow: 0 0 10px 8px #6a00ff44;
     text-align: center;
+    mix-blend-mode: difference;
+    justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
     font-size: 36px;
     letter-spacing: 3px;
     float: none;
-    margin:0;
-    padding:0 60px;
+    margin:1rem;
+    padding:0;
     bottom:0 !important;
     line-height: 100%;
     outline: none !important;
@@ -132,9 +140,11 @@ main {
     }
 
     &:hover {
-        background: url(../images/about/logo-transparent.png) left no-repeat, rgba(255, 255, 255, 0.6);
+        background: url(../images/about/logo-transparent.png) left no-repeat, rgba(0, 0, 0, 0.848);
         transition: all 0.5s;
         padding: 1.5rem 3rem 1.5rem 2rem;
+        box-shadow: 0 0 10px 8px #ff850244;
+        color: #ff850244;
 
         &::after {
             transition: all 0.5s;
@@ -146,6 +156,8 @@ main {
   
 .active {
     background: url(../images/about/logo-transparent.png) left no-repeat, rgb(255, 255, 255);
+    color: black;
+    box-shadow: 0 0 10px 8px #ff656544;
 }
 
 .section_content {

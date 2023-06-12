@@ -29,6 +29,7 @@
           }
       });
   });
+
   
   // collapsible section fxs
   var coll = document.getElementsByClassName("collapsible");
