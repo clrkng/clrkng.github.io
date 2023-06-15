@@ -1,51 +1,20 @@
-{% comment %}
-  Required Arguments:
-  - mobile (boolean)
-
-  Use it like:
-
-  {% include events.html
-    mobile=true
-  %}
-{% endcomment %}
-
-
 {% assign events = site.events | sort: 'year' | reverse %}
 
-{% if include.mobile %}
-  <!-- For consistency, should possibly refactor the mobile IDs to remove the work_ prefix. -->
-  <span class="anchor" id="{{ include.section_id }}_mobile"></span>
-{% else %}
-  <span class="anchor" id="{{ include.section_id }}"></span>
-{% endif %}
+<ul class="section-list">
+  {% for event in events %}
+  <li>
+    <div class="list-item collapsible-item">
+      <div class="list-text" style="padding-right: 10px">{{ event.name }}</div>
+      <div class="list-text">{{  event.location }} </div>
+      <div class="list-text" style="padding-left: 100px;">{{ event.year }}</div>
+    </div>
+    <div class="list-content vertical">
+      <img class="list-image-wide" src="{{ event.image }}">
+      <div class="list-info" style="margin-top: 20px;">
+        {{ event.description }}
+      </div>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
 
-{% for event in events %}
-    <p
-      class='event_name collapsed'
-      data-toggle='collapse'
-      data-target='#{{ carousel_id }}'
-      href='#{{ carousel_id }}'
-    >
-      {% if include.mobile %}
-        <!-- This class isn't used for styling. See main.js  -->
-        <span class='mobile-scroll-varied-sidebar-text'>
-      {% else %}
-        <span class='desktop-scroll-varied-sidebar-text'>
-      {% endif %}
-        {{ event.name }}
-      </span>
-    </p>
-
-    <table class="table table-borderless table-sm" id="event_info">
-        <tbody>
-            <tr><th scope="row">Location</th><td>{{ event.location }}</td></tr>
-            <tr><th scope="row">Year</th><td>{{ event.year }}</td></tr>
-            <tr><th scope="row">Artists</th><td>{{ event.artists }}</td></tr>
-        </tbody>
-    </table>
-
-    {% include item_description_collapse.html item=event %}
-
-    <hr class="divider_item">
-
-{% endfor %}

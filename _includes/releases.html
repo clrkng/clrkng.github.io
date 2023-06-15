@@ -1,40 +1,36 @@
-{% comment %}
-  Required Arguments:
-  - mobile (boolean)
 
-  Use it like:
+{% assign releases = site.releases | sort: 'day' | reverse %}
 
-  {% include releases.html
-    mobile=true
-  %}
-{% endcomment %}
+<ul class="section-list">
+  {% for release in releases %}
+  <li>
+    <div class="list-item collapsible-item">
+      <div class="list-text" style="padding-right: 10px">{{ release.catalogue }}</div>
+      <div class="list-text">{{ release.artist }} </div>
+      <div class="list-text">{{ release.name }}</div>
+      <div class="list-text">{{ release.distribution }}</div>
+      <div class="list-text" style="padding-left: 100px;">{{ release.day }}</div>
+    </div>
+    <div class="list-content">
+      <div style="margin-right: 20px;">
+        <img class="list-image" src="{{ release.image }}">
+      </div>
+      <div class="list-info" style="margin-top: 20px;">
+        {% for track in release.tracks %}
+            {{ track }}
+            <br>
+        {% endfor %}
+        <br>
+        <br>
+        Mastering: {{ release.mastering }}
+        <br>
+        Pressing: {{ release.pressing }}
+        <br>
+        {{ release.description }}
+      </div>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
 
 
-{% assign releases = site.releases | sort: 'year' | reverse %}
-
-{% if include.mobile %}
-  <!-- For consistency, should possibly refactor the mobile IDs to remove the work_ prefix. -->
-  <span class="anchor" id="{{ include.section_id }}_mobile"></span>
-{% else %}
-  <span class="anchor" id="{{ include.section_id }}"></span>
-{% endif %}
-
-{% for release in releases %}
-  <button class="collapsible-item">{{ release.catalogue }} {{ release.artist }} {{ release.name }}</button>
-  <div class="release_content">
-
-      
-  </div>
-    <table class="table table-borderless table-sm" id="release_info">
-        <tbody>
-            <tr><th scope="row">Tracklist</th><td>{{ release.tracklist }}</td></tr>
-            <tr><th scope="row">Date</th><td>{{ release.date }}</td></tr>
-            <tr><th scope="row">Mastering</th><td>{{ release.mastering }}</td></tr>
-            <tr><th scope="row">Pressing</th><td>{{ release.pressing }}</td></tr>
-            <tr><th scope="row">Distribution</th><td>{{ release.distribution }}</td></tr>
-        </tbody>
-    </table>
-
-    {% include item_description_collapse.html item=release %}
-
-{% endfor %}

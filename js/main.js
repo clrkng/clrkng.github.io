@@ -17,7 +17,7 @@
           // if the click was anywhere on the topnav
           if ($target.closest('#topnav_mobile_above_divider').length !== 0 ||
               $target.closest('#topnav_desktop').length !== 0) {
-              $('.collapse').collapse('hide');
+              $('.collapsible').collapse('hide');
 
               $([document.documentElement, document.body]).animate({
                   scrollTop: 0,
@@ -54,10 +54,45 @@
           item.nextElementSibling.style.maxHeight = null;
         }
         content.style.maxHeight = content.scrollHeight + "px";
+
+        // get the collapsible items in this collapsible section
+        var parentHeight = content.style.maxHeight;
+        var collItems = content.getElementsByClassName("collapsible-item");
+        var j;
+        for (j = 0; j < collItems.length; j++) {
+          collItems[j].addEventListener("click", function() {
+            
+            var itemContent = this.nextElementSibling;
+            if (this.classList.contains("active-item"))
+            {
+              content.style.maxHeight -= itemContent.scrollHeight;
+              itemContent.style.maxHeight = null;
+              this.classList.remove("active-item");
+              itemContent.classList.remove("has-content") 
+            }
+            else
+            {
+              for(item of collItems){ 
+                if (item.classList)
+                item.classList.remove("active-item");
+                item.nextElementSibling.style.maxHeight = null;
+                item.nextElementSibling.classList.remove("has-content") 
+              }
+              itemContent.style.maxHeight = itemContent.scrollHeight + "px";
+              content.style.maxHeight = itemContent.scrollHeight + parentHeight;
+              this.classList.add("active-item"); 
+              itemContent.classList.add("has-content") 
+            }
+
+          });
+        }
       }
       this.classList.toggle("active"); // toggle the active state of this collapsible
+
     });
   }
+
+
   
     var isMobile = function () {
       return window.innerWidth <= 900;
