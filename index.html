@@ -30,89 +30,64 @@
 
 </head>
 <body data-spy="scroll" data-target="#sidenav" data-offset="15">
-    <h1>New Palm</h1>
+
   <div id='mobile-root'>
+    <div class="container-fluid h-10" id="mobile_content">
+        <div id="all_overlay">
+            <!-- HEADER -->
+            <nav class=" navbar sticky-top mobile">
+                <a href="" class="navbar-link">NEW  PALM</a>
+            </nav>
 
-    <nav class="navbar sticky-top" id="topnav_mobile">
-        <div class="container-fluid mt-2 no-margin" id="topnav_mobile_above_divider">
-            <div class="navbar-header-right col">
-                <a href="" class="navbar-link">N E W</a>
-            </div>
-            <div class="navbar-header-left col">
-                <a href="" class="navbar-link">P A L M</a>
-            </div>
-        </div>
+            <main>
+                <div class="content-main mobile">
 
-        <div class="container-fluid" id="mobile_navdivider">
-          <div class="p-0 col">
-              <hr class="navbar-hr mt-1 no-margin" data-toggle="collapse" data-target="#navbarToggle" aria-controls="#navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-          </div>
-        </div>
+                    <div id="about_mobile">
+                        <p>
+                            Independent record label and off-kilter event series, in and around Los Angeles since 2018. <br><br><br>
+                        </p>
+                        <ul id="icons">
+                            <li class="d-inline"><a href="https://www.instagram.com/new.palm/" class="icon-link"><i class="fa fa-instagram"></i></a></li>
+                            <li class="d-inline"><a href="https://soundcloud.com/newpalm" class="icon-link"><i class="fa fa-soundcloud"></i></a></li>
+                            <li class="d-inline"><a href="https://newpalm.bandcamp.com/" class="icon-link"><i class="fa fa-bandcamp"></i></a></li>
+                        </ul>
+                    </div>
 
-        <div class="collapse shadow-sm" id="navbarToggle">
-            <div class="col" id="navbarToggle_content">
-                <ul id="togglenav">
-                    <li data-id="releases_mobile" class="nav-item-lg" data-toggle="collapse" data-target="#navbarToggle"><a href="#releases_mobile" class="nav-link">RELEASES</a></li>
-                    <li data-id="mixes_mobile" class="nav-item-lg" data-toggle="collapse" data-target="#navbarToggle"><a href="#mixes_mobile" class="nav-link">MIXES</a></li>
-                    <li data-id="events_mobile" class="nav-item-lg" data-toggle="collapse" data-target="#navbarToggle"><a href="#events_mobile" class="nav-link">EVENTS</a></li>
-                    <li data-id="residents_mobile" class="nav-item-lg" data-toggle="collapse" data-target="#navbarToggle"><a href="#residents_mobile" class="nav-link">RESIDENTS</a></li>
-                    <li data-id="about_mobile"class="nav-item-lg active" data-toggle="collapse" data-target="#navbarToggle"><a href="#about_mobile" class="nav-link">ABOUT</a></li>
-                </ul>
-            </div>
-        </div>
+                    <!-- RELEASES ----------------------------------------------------------------->
+                    <button class="collapsible mobile">RELEASES</button>
+                    <div class="section_content" id="releases_mobile">
+                        {% include releases.html
+                            mobile=true %}
+                    </div>
 
-    </nav>
+                    <!-- MIXES -------------------------------------------------------------------->
+                    <button class="collapsible mobile">MIXES</button>
+                    <div class="section_content" id="mixes_mobile">
+                        {% include mixes.html %}
+                    </div>
 
+                    <!-- EVENTS ------------------------------------------------------------------->
+                    <button class="collapsible mobile">EVENTS</button>
+                    <div class="section_content" id="events_mobile">
+                        {% include events.html %}
+                    </div>
 
-    <main class="mobile-main">
+                    <!-- RESIDENTS ---------------------------------------------------------------->
+                    <button class="collapsible mobile">RESIDENTS</button>
+                    <div class="section_content" id="residents_mobile">
+                        {% include residents.html %}
+                    </div>
+                </div>
+            </main>
 
-        <div id="content_body">
-
-            <!-- RELEASES ----------------------------------------------------------------->
-            <div id="releases_mobile"> 
-                {% include releases.html
-                mobile=true
-                section_id='releases'
-                %}
-            </div>
-
-            <!-- MIXES -------------------------------------------------------------->
-            <div id="mixes_mobile">
-                {% include mixes.html
-                mobile=true
-                section_id='mixes'
-                %}
-            </div>
-
-            <!-- EVENTS ------------------------------------------------------------->
-            <div id="events_mobile">
-                {% include events.html
-                mobile=true
-                section_id='events'
-                %}
-            </div>
-
-            <!-- RESIDENTS ------------------------------------------------------------------>
-            <div id="residents_mobile">
-                {% include residents.html
-                mobile=true
-                section_id='residents'
-                %}
-            </div>
-
-            <!-- ABOUT ------------------------------------------------------------------>
-            <div id="about_mobile"> 
-                <p class="section_title">
-                    <span class='desktop-scroll-varied-sidebar-text'>About</span>
-                </p>
+            <!-- FOOTER -->
+            <footer class="mobile">
                 <p>
-                    A Los Angeles record Label founded by <a class="about-link" href="https://link.here">PAUL</a>.
-                    Website built by <a class="about-link" href="https://www.instagram.com/clrkng">Claire Kuang</a>.
+                    Website designed and built by <a class="footer-link" href="https://www.instagram.com/clrkng">Claire Kuang</a>.
                 </p>
-                <br>
-            </div>
+            </footer>
         </div>
-    </main>
+    </div>
 
   </div>
 
@@ -120,76 +95,62 @@
 
     <!-- Content -->
     <div class="container-fluid h-10" id="desktop_content">
-
-        <!-- HEADER -->
-        <nav class="navbar sticky-top" id="header_desktop">
-            <div class="navbar-header-left col-md-3" >
-            </div>
-            <div class="flex-column">
-                <a href="" class="navbar-link">NEW  PALM</a>
-            </div>
-            <div class="navbar-header-right col-md-3">
-                <ul id="icons">
-                    <li class="d-inline"><a href="https://www.instagram.com/new.palm/" class="icon-link"><i class="fa fa-instagram"></i></a></li>
-                    <li class="d-inline"><a href="https://soundcloud.com/newpalm" class="icon-link"><i class="fa fa-soundcloud"></i></a></li>
-                    <li class="d-inline"><a href="https://newpalm.bandcamp.com/" class="icon-link"><i class="fa fa-bandcamp"></i></a></li>
-                </ul>
-            </div>
-        </nav>
-
-        <main>
-            <div id="content_main">
-                <!-- RELEASES ----------------------------------------------------------------->
-                <button class="collapsible">RELEASES</button>
-                <div class="section_content" id="releases">
-                    {% include releases.html
-                        mobile=false
-                        section_id='releases'
-                        %}
-                </div>
-            
-                <!-- MIXES -------------------------------------------------------------------->
-                <button class="collapsible">MIXES</button>
-                <div class="section_content" id="mixes">
-                    {% include mixes.html
-                    mobile=false
-                    section_id='mixes'
-                    %}
-                </div>
-
-                <!-- EVENTS ------------------------------------------------------------------->
-                <button class="collapsible">EVENTS</button>
-                <div class="section_content" id="events">
-                    {% include events.html
-                    mobile=false
-                    section_id='events'
-                    %}
-                </div>
-
-                <!-- RESIDENTS ---------------------------------------------------------------->
-                <button class="collapsible">RESIDENTS</button>
-                <div class="section_content" id="residents">
-                    {% include residents.html
-                    mobile=false
-                    section_id='residents'
-                    %}
-                </div>
-
-                <!-- ABOUT -------------------------------------------------------------------->
-                <button class="collapsible">ABOUT</button>
-                <div class="section_content" id="about"> 
-                    <p>
-                        A Los Angeles record Label founded by <a class="about-link" href="https://link.here">PAUL</a>.
-                        Website built by <a class="about-link" href="https://www.instagram.com/clrkng">Claire Kuang</a>.
+        <div id="all_overlay">
+            <!-- HEADER -->
+            <nav class="navbar sticky-top">
+                <div class="flex-column">
+                    <a href="" class="navbar-link">NEW  PALM</a>
+                    <p id="about_desktop">
+                        Independent record label and off-kilter event series, in and around Los Angeles since 2018.
                     </p>
+                    <ul id="icons">
+                        <li class="d-inline"><a href="https://www.instagram.com/new.palm/" class="icon-link"><i class="fa fa-instagram"></i></a></li>
+                        <li class="d-inline"><a href="https://soundcloud.com/newpalm" class="icon-link"><i class="fa fa-soundcloud"></i></a></li>
+                        <li class="d-inline"><a href="https://newpalm.bandcamp.com/" class="icon-link"><i class="fa fa-bandcamp"></i></a></li>
+                    </ul>
                 </div>
-            </div>
-        </main>
-        
+            </nav>
+
+            <main>
+                <div class="content-main desktop">
+
+                    <!-- RELEASES ----------------------------------------------------------------->
+                    <button class="collapsible desktop">RELEASES</button>
+                    <div class="section_content" id="releases">
+                        {% include releases.html
+                            mobile=false %}
+                    </div>
+                
+                    <!-- MIXES -------------------------------------------------------------------->
+                    <button class="collapsible desktop">MIXES</button>
+                    <div class="section_content" id="mixes">
+                        {% include mixes.html %}
+                    </div>
+
+                    <!-- EVENTS ------------------------------------------------------------------->
+                    <button class="collapsible desktop">EVENTS</button>
+                    <div class="section_content" id="events">
+                        {% include events.html %}
+                    </div>
+
+                    <!-- RESIDENTS ---------------------------------------------------------------->
+                    <button class="collapsible desktop">RESIDENTS</button>
+                    <div class="section_content" id="residents">
+                        {% include residents.html %}
+                    </div>
+                </div>
+            </main>
+
+            <!-- FOOTER -->
+            <footer class="desktop">
+                <p>
+                    Website designed and built by <a class="footer-link" href="https://www.instagram.com/clrkng">Claire Kuang</a>.
+                </p>
+            </footer>
+        </div>
     </div>
 
   </div>
-
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"

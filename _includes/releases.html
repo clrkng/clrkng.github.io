@@ -1,33 +1,75 @@
+{% comment %}
+  Required Arguments:
+  - mobile (boolean)
+
+  Use it like:
+
+  {% include releases.html
+    mobile=true
+  %}
+{% endcomment %}
+
 {% assign releases = site.releases | sort: 'day' | reverse %}
 
 <ul class="section-list">
   {% for release in releases %}
   <li>
-    <div class="list-item collapsible-item">
-      <div class="list-text" style="padding-right: 10px">{{ release.catalogue }}</div>
-      <div class="list-text">{{ release.artist }} </div>
-      <div class="list-text">{{ release.name }}</div>
-      <div class="list-text">{{ release.distribution }}</div>
-      <div class="list-text" style="padding-left: 100px;">{{ release.day }}</div>
-    </div>
-    <div class="list-content">
-      <div style="margin-right: 20px;">
-        <img class="list-image" src="{{ release.image }}">
+    {% if include.mobile %}
+      <div class="list-item collapsible-item">
+        <div class="list-text" style="padding-right: 10px">{{ release.catalogue }}</div>
+        <div class="list-text">{{ release.artist }} </div>
+        <div class="list-text" style="padding-left: 30px;">{{ release.name }}</div>
       </div>
-      <div class="list-info" style="margin-top: 20px;">
-        {% for track in release.tracks %}
-            {{ track }}
-            <br>
-        {% endfor %}
-        <br>
-        <br>
-        Mastering: {{ release.mastering }}
-        <br>
-        Pressing: {{ release.pressing }}
-        <br>
-        {{ release.description }}
+      <div class="list-content vertical">
+        <div class="list-info" style="margin: 20px;">
+          distribution: {{ release.distribution }}
+          <br>
+          Pressing: {{ release.day }}
+        </div>
+        <div style="margin-left: 20px;">
+          <img class="list-image" src="{{ release.image }}">
+        </div>
+        <div class="list-info" style="margin: 20px;">
+          {% for track in release.tracks %}
+              {{ track }}
+              <br>
+          {% endfor %}
+          <br>
+          Mastering: {{ release.mastering }}
+          <br>
+          Pressing: {{ release.pressing }}
+          <br>
+          <br>
+          {{ release.description }}
+        </div>
       </div>
-    </div>
+    {% else %}
+      <div class="list-item collapsible-item">
+        <div class="list-text" style="padding-right: 10px">{{ release.catalogue }}</div>
+        <div class="list-text">{{ release.artist }} </div>
+        <div class="list-text">{{ release.name }}</div>
+        <div class="list-text">{{ release.distribution }}</div>
+        <div class="list-text" style="padding-left: 100px;">{{ release.day }}</div>
+      </div>
+      <div class="list-content">
+        <div style="margin-right: 20px;">
+          <img class="list-image" src="{{ release.image }}">
+        </div>
+        <div class="list-info" style="margin-top: 20px;">
+          {% for track in release.tracks %}
+              {{ track }}
+              <br>
+          {% endfor %}
+          <br>
+          Mastering: {{ release.mastering }}
+          <br>
+          Pressing: {{ release.pressing }}
+          <br>
+          <br>
+          {{ release.description }}
+        </div>
+      </div>
+    {% endif %}
   </li>
   {% endfor %}
 </ul>

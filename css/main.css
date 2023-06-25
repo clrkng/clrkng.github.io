@@ -1,8 +1,14 @@
 ﻿/*--- mobile and desktop ---*/
 @media all and (max-width: 900px) {
-  #desktop-root {
-    display: none;
-  }
+    #desktop-root {
+        display: none;
+    }
+}
+
+@media all and (min-width: 901px) {
+    #mobile-root {
+        display: none;
+    }
 }
 
 #desktop_content{
@@ -14,11 +20,19 @@
     background-position: bottom left;
 }
 
-@media all and (min-width: 901px) {
-  #mobile-root {
-    display: none;
-  }
+#mobile_content{
+    margin:0;
+    padding:0;
+    background: url(../images/about/heat\ palm\ crop.gif) no-repeat, radial-gradient(#6a00ff73, rgba(255, 242, 122, 0.419), #ffffff00,  #ffffff00);
+    background-size: contain;
+    background-attachment: fixed;
+    background-position: left;
 }
+
+#all_overlay{
+    background: rgba(255, 255, 255, 0.4);
+}
+
 
 /*--- general ---*/
 
@@ -38,30 +52,28 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-.row {
-    margin:0;
-}
-
 
 /*--- header ---*/
+
 nav {
     background-image: linear-gradient(rgb(255, 238, 83), rgba(255, 242, 122, 0.419), rgba(255, 74, 8, 0));
-    height: 9rem;
-    padding: 0 !important;
+    height: 10rem;
     margin: 0;
-    vertical-align:top;
-    align-items:flex-end;
+    padding: 0 !important;
     color: rgb(0, 0, 0);
+    align-items: center;
 }
 
-.navbar-header-left {
-    text-align:right;
-    padding-right: 0;
+nav.mobile {
+    height: 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
 }
 
-.navbar-header-right {
-    text-align: left;
-    padding-left: 1.8rem;
+.navbar-header {
+    font-size: 14px;
 }
 
 .navbar-link {
@@ -83,9 +95,9 @@ nav {
 
 .icon-link {
     color: rgb(0, 0, 0);
-    font-weight: 600;
-    font-size: 28px;
-    padding: 4px;
+    font-weight: 400;
+    font-size: 26px;
+    padding: 6px;
     vertical-align: bottom;
 }
 .icon-link:hover {
@@ -93,31 +105,81 @@ nav {
     text-decoration: none;
 }
 
+.flex-column {
+    flex-direction: column;
+    width: 24rem;
+    font-size: 16;
+    margin-left: 5px;
+}
+
+#icons {
+    padding: 0;
+}
+
+/*--- footer ---*/
+footer.desktop {
+    text-align: center;
+    font-size: x-small;
+    color: black;
+}
+
+footer.mobile {
+    text-align: center;
+    font-size: x-small;
+    color: black;
+}
+
+.footer-link {
+    color: rgba(255, 47, 19, 0.693);
+    &:hover {
+        text-decoration:line-through;
+        color: rgba(98, 19, 255, 0.693);
+    }
+}
+
 /*--- main ---*/
 main {
     height: 100%;
 }
 
-#content_main{
-    padding-top: 6rem;
+#about_desktop {
+    text-align: justify;
+    padding-top: 10px;
+    font-size: 14px;
+    margin-left: 2px;
+    width: 22rem;
+}
+
+#about_mobile {
+    margin: 30px;
+    text-align: center;
+    padding-bottom: 6rem;
+}
+
+.content-main{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: rgba(255, 255, 255, 0.44);
     margin: auto;
+}
+
+.content-main.desktop{
+    padding-top: 8rem;
+}
+
+.content-main.mobile{
+    padding-top: 2rem;
 }
 
 /*--- sections ---*/
 .collapsible {
     height: 7rem;
-    width: 60%;
-    background: #5100ff44;
-    color: #ffffff;
+    background: #f8ff2a44;
     border: none !important;
     border-radius: 2rem;
-    box-shadow: 0 0 10px 8px #6f00ff47;
+    box-shadow: 0 0 10px 8px #f8ff2a44;
+    
     text-align: center;
-    mix-blend-mode: difference;
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 700;
@@ -130,31 +192,55 @@ main {
     line-height: 100%;
     outline: none !important;
 
-
     &::after {
         transform: translate(-50%, -50%);
         transition: all 0.5s;
     }
 
+  }
+
+.collapsible.desktop {
+    width: 60%;
+    mix-blend-mode:color-burn;
+
     &:hover {
         background: rgba(220, 220, 220, 0.848);
+        backdrop-filter: blur(4px);
         transition: all 0.5s;
         padding: 1.5rem 3rem 1.5rem 2rem;
         box-shadow: 0 0 10px 8px #ff656544;
         color: #000000af;
+        mix-blend-mode:difference;
 
         &::after {
             transition: all 0.5s;
         }
     }
+}
 
-  }
-
+.collapsible.mobile {
+    width: 80%;
+    mix-blend-mode:hard-light;
+}
   
-.active {
-    background: rgb(255, 255, 255);
-    color: black;
+.active.desktop {
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    mix-blend-mode:normal;
     box-shadow: 0 0 10px 8px #ff656544;
+}
+.active.mobile {
+    background: rgba(220, 220, 220, 0.848);
+    backdrop-filter: blur(4px);
+    transition: all 0.5s;
+    padding: 1.5rem 3rem 1.5rem 2rem;
+    box-shadow: 0 0 10px 8px #ff656544;
+    color: #000000af;
+    mix-blend-mode:difference;
+
+    &::after {
+        transition: all 0.5s;
+    }
 }
 
 .section_content {
@@ -170,7 +256,7 @@ main {
     text-align: left;
 }
 
-/*--- releases ---*/
+/*--- section content ---*/
 .section-list {
     list-style: none;
     padding: 0;
@@ -230,278 +316,3 @@ main {
     object-fit: cover;
     aspect-ratio: 16/9;
 }
-
-
-
-title, h1 {
-    display: none;
-}
-
-.text-align-left {
-  text-align: left;
-}
-
-.text-align-right {
-  text-align: right;
-}
-
-.ratio-container {
-  /* Any percent for padding is a percent of the width. So this gives a 4:3
-  aspect ratio. See https://css-tricks.com/aspect-ratio-boxes/ */
-  padding-top: 75%;
-  width: 100%;
-  position: relative;
-}
-
-.fit-image-to-container {
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.mobile-main {
-  margin-left: 2rem;
-  margin-right: 2rem;
-  font-weight: 100;
-}
-
-
-
-
-
-/*--- navigation bars ---*/
-
-
-
-.flex-column {
-    flex-direction: column;
-}
-
-
-
-
-
-
-
-
-
-#desktop_navdivider {
-    background-color: transparent;
-
-    /* Because of the existing col-sm-12 and col-md-8 classes on this
-       element, when the page width increases the columns will get
-       wider in proportion to the ratios in those styles.
-
-       To keep the top bar from getting wider (and thus putting any
-       remaining width increases into the other two columns) we just
-       limit the max width, and override the max-width style from the
-       col-sm-12 and col-md-8 classes. This width value is arbitrary
-       and can be changed.
-     */
-    max-width: 200px;
-}
-
-.navbar-hr {
-    width: 100%;
-    max-width:800px;
-    height: 1.6em;
-    margin-bottom: 0.4em;
-}
-
-
-.anchor {
-  display: block;
-  visibility: hidden;
-}
-
-#topnav_mobile {
-    height: 6rem;
-}
-
-#togglenav {
-    padding: 1.8rem;
-    list-style: none;
-    background-image: linear-gradient( rgba(255, 250, 175, 0.1),  rgba(255, 242, 122, 0.942), #4800ff41);
-    text-align: left;
-    color: rgb(10, 10, 10);
-    margin: 0;
-    height: 15rem;
-}
-
-
-#togglenav .nav-item-lg,
-#togglenav .nav-item-sm {
-    line-height: 0.9em;
-    letter-spacing: 0.1rem;
-    font-size: small;
-    color: white;
-    font-weight: bolder;
-}
-
-#togglenav .nav-link {
-    cursor: crosshair;
-    padding: 0.9em 0;
-    margin: 0;
-    letter-spacing: 0.1rem;
-    font-size:15px;
-    color: rgb(15, 15, 15);
-    text-align: center;
-}
-
-#togglenav .nav-link:focus {
-    color: black;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    cursor:crosshair;
-    font-size:15px;
-    font-weight:400;
-    letter-spacing:0.1rem;
-}
-
-#togglenav ul {
-    display: block;
-}
-
-#mobile_navdivider aside {
-    padding-left: 1.8rem;
-    padding-right: 1.8rem;
-    letter-spacing: 0.1rem;
-}
-
-
-#scroll-varied-section-description {
-    padding-top: 67%;
-    overflow-wrap: break-word;
-}
-
-
-/*--- body styling ---*/
-
-#main_title {
-    font-size: 48px;
-    font-weight: 100;
-    letter-spacing: 0.2rem;
-    vertical-align: bottom;
-    margin-bottom: 1rem;
-}
-
-.section_title {
-    font-size: x-large;
-    color: moccasin;
-    font-weight: 600;
-    letter-spacing: 0.2rem;
-    vertical-align: bottom;
-    padding: 0.5rem 0;
-    font-style:italic;
-}
-
-.item_title {
-    font-size: x-large;
-    font-weight: lighter;
-    letter-spacing: 0.1rem;
-    text-align: left;
-    margin-bottom: 2rem;
-    cursor: crosshair;
-}
-
-.item_title:hover {
-    text-decoration:line-through;
-}
-
-#body_title_major {
-    font-size: larger;
-    font-weight: bold;
-    text-align: left;
-    letter-spacing: 0.1rem;
-    padding-top:1.2rem;
-}
-#body_title_minor {
-    font-weight: bold;
-    padding-top: 1rem;
-}
-
-.no-margin {
-    margin: 0 !important;
-    padding: 0 !important;
-}
-
-.table {
-    font-size: small;
-    letter-spacing: 0.1rem;
-    margin-bottom: 2rem;
-}
-
-.table th {
-    width: 4rem;
-    padding-left: 0;
-}
-
-.divider, .divider_topmost, .divider_item {
-    /*background-color: moccasin;*/
-    background-color: black;
-    height: 2px;
-    border: 0;
-    padding: 0;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-
-.about-link {
-    color: black;
-    font-weight:500;
-    padding:0.4em;
-    letter-spacing:2px;
-    font-size:medium;
-    background-clip: content-box !important;
-    background-color: moccasin !important;
-}
-.about-link:hover{
-    text-decoration:line-through;
-    color:black;
-    cursor:crosshair;
-}
-.tab {
-    padding-left: 1.5rem;
-}
-
-.collapse_arrow {
-    font-size: large;
-}
-.collapse_arrow:hover{
-    cursor:crosshair;
-    background: black;
-    color: white;
-}
-
-.collapse_arrow.collapsed:before
-{
-    content:'+ more' ;
-    font-style: italic;
-    font-size: 18px;
-}
-
-.collapse_arrow:before
-{
-    content:'- less' ;
-    font-style: italic;
-    font-size: 18px;
-}
-
-.nav_arrow {
-    font-size: large;
-}
-
-.nav_arrow.collapsed:before {
-    content: '↓ next';
-    font-style: italic;
-    font-size: 18px;
-}
-
-.nav_arrow:before {
-    content: '↑ top';
-    font-style: italic;
-    font-size: 18px;
-}
-

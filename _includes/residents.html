@@ -7,10 +7,8 @@
       <div class="list-text" style="padding-right: 10px">{{ resident.name }}</div>
       <div class="list-text">{{  resident.location }} </div>
     </div>
-    <div class="list-content vertical">
-      <div class="list-info" style="margin-top: 20px;">
-        {{ resident.bio }}
-      </div>
+    <div class="list-content">
+      {{ resident.description }}
     </div>
   </li>
   {% endfor %}
