@@ -8,6 +8,10 @@
 #desktop_content{
     margin:0;
     padding:0;
+    background: url(../images/about/heat\ palm\ crop.gif) no-repeat, radial-gradient(#6a00ff73, rgba(255, 242, 122, 0.419), #ffffff00,  #ffffff00);
+    background-size: contain;
+    background-attachment: fixed;
+    background-position: bottom left;
 }
 
 @media all and (min-width: 901px) {
@@ -41,14 +45,13 @@ body {
 
 /*--- header ---*/
 nav {
-    background-image: linear-gradient(#9d00ff74, #9d00ff44, rgba(255, 255, 255, 0));
-    mix-blend-mode: difference;
-    height: 8rem;
+    background-image: linear-gradient(rgb(255, 238, 83), rgba(255, 242, 122, 0.419), rgba(255, 74, 8, 0));
+    height: 9rem;
     padding: 0 !important;
     margin: 0;
     vertical-align:top;
     align-items:flex-end;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .navbar-header-left {
@@ -61,66 +64,58 @@ nav {
     padding-left: 1.8rem;
 }
 
-#header_desktop {
-    justify-content: center;
-}
-
 .navbar-link {
-    color: #ffffff;
+    color: #0a0a0a;
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: 700;
-    font-size: 40px;
-    letter-spacing: 3px;
+    font-weight: 750;
+    font-size: 60px;
+    letter-spacing: 5px;
     float: none;
     margin:0;
     padding:0;
     line-height: 100%;
 
     &:hover {
-        color: #ff343450;
+        color:#1b022953;
         text-decoration: none;
     }
 }
 
 .icon-link {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     font-weight: 600;
     font-size: 28px;
     padding: 4px;
     vertical-align: bottom;
 }
 .icon-link:hover {
-    color: #ff343450;
+    color: #1b022953;
     text-decoration: none;
 }
 
 /*--- main ---*/
 main {
-    height: 100vh;
-    background: url(../images/about/heat\ palm.gif) no-repeat, radial-gradient(#6a00ff73, rgba(255, 242, 122, 0.419), #ffffff00,  #ffffff00);
-    background-size: contain;
-    background-attachment: fixed;
-    background-position: center;
+    height: 100%;
 }
 
 #content_main{
-    padding-top: 2rem;
-    width: 85%;
+    padding-top: 6rem;
     display: flex;
     flex-direction: column;
-    margin: 0 auto;
-    background: rgba(255, 255, 255, 0.595);
+    align-items: center;
+    background: rgba(255, 255, 255, 0.44);
+    margin: auto;
 }
 
 /*--- sections ---*/
 .collapsible {
     height: 7rem;
-    width: 97%;
-    background: #9d00ff44;
+    width: 60%;
+    background: #5100ff44;
     color: #ffffff;
     border: none !important;
     border-radius: 2rem;
-    box-shadow: 0 0 10px 8px #6a00ff44;
+    box-shadow: 0 0 10px 8px #6f00ff47;
     text-align: center;
     mix-blend-mode: difference;
     justify-content: center;
@@ -146,7 +141,7 @@ main {
         transition: all 0.5s;
         padding: 1.5rem 3rem 1.5rem 2rem;
         box-shadow: 0 0 10px 8px #ff656544;
-        color: #00000044;
+        color: #000000af;
 
         &::after {
             transition: all 0.5s;
@@ -164,6 +159,7 @@ main {
 
 .section_content {
     padding: 0;
+    width: 90%;
     margin: 1rem;
     max-height: 0;
     overflow: hidden;
@@ -231,6 +227,8 @@ main {
 
 .list-image-wide{
     width:100%;
+    object-fit: cover;
+    aspect-ratio: 16/9;
 }
 
 
