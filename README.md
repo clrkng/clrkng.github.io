@@ -3,7 +3,7 @@
 ## Releases
 
 To add a new release, copy and paste a new `[catalogue_number].html` file in the `_releases` folder.
-Then update all of the information in the `field`s following this template:
+Then update all of the information in the `` fields following this template:
 
 ```
 ---
@@ -33,7 +33,7 @@ For the release image, make sure to add an image of the cover in the `/images/re
 ## Mixes
 
 To add a new mix, copy and paste a new `[mix_number].html` file in the `_mixes` folder.
-Then update all of the information in the `field`s following this template:
+Then update all of the information in the `` fields following this template:
 
 ```
 ---
@@ -51,7 +51,7 @@ For the soundcloud embed (the `iframe` field), navigate to the mix's soundcloud 
 ## Events
 
 To add a new event, copy and paste a new `[event name].html` file in the `_events` folder.
-Then update all of the information in the `field`s following this template:
+Then update all of the information in the `` fields following this template:
 
 ```
 ---
@@ -70,7 +70,7 @@ For the event image, make sure to add an image in the `/images/events/` folder a
 ## Residents
 
 To add a new resident, copy and paste a new `[resident name].html` file in the `_residents` folder.
-Then update all of the information in the `field`s following this template:
+Then update all of the information in the `` fields following this template:
 
 ```
 ---
