@@ -16,9 +16,9 @@
   <li>
     {% if include.mobile %}
       <div class="list-item collapsible-item">
-        <div class="list-text" style="padding-right: 10px">{{ event.name }}</div>
+        <div class="list-text left">{{ event.name }}</div>
         <div class="list-text">{{  event.location }} </div>
-        <div class="list-text" style="padding-left: 30px;">{{ event.year }}</div>
+        <div class="list-text right mobile">{{ event.year }}</div>
       </div>
       <div class="list-content vertical">
         <img class="list-image-wide" src="{{ event.image }}">
@@ -28,9 +28,9 @@
       </div>
     {% else %}
       <div class="list-item collapsible-item">
-        <div class="list-text" style="padding-right: 10px">{{ event.name }}</div>
+        <div class="list-text left">{{ event.name }}</div>
         <div class="list-text">{{  event.location }} </div>
-        <div class="list-text" style="padding-left: 100px;">{{ event.year }}</div>
+        <div class="list-text right">{{ event.year }}</div>
       </div>
       <div class="list-content vertical">
         <img class="list-image-wide" src="{{ event.image }}">
