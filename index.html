@@ -1,0 +1,173 @@
+---
+# This is a YAML comment. You need a YAML front matter section
+# like this to enable Liquid templating for this file.
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Tab Info -->
+    <link rel="icon" href="images/about/favicon.ico">
+    <title>new palm</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A Record Label">
+    <meta name="keywords" content="music, record label, los angeles">
+    <meta name="author" content="Claire Kuang">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <!-- Font -->
+    <link href="https://fonts.googleapis.com/css?family=Spline+Sans+Mono" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body data-spy="scroll" data-target="#sidenav" data-offset="15">
+
+  <div id='mobile-root'>
+    <div class="container-fluid h-10" id="mobile_content">
+        <div id="all_overlay">
+            <!-- HEADER -->
+            <nav class=" navbar sticky-top mobile">
+                <a href="" class="navbar-link">NEW  PALM</a>
+            </nav>
+
+            <main>
+                <div class="content-main mobile">
+
+                    <div id="about_mobile">
+                        <p>
+                            Independent record label and off-kilter event series, in and around Los Angeles since 2018. <br><br><br>
+                        </p>
+                        <ul id="icons">
+                            <li class="d-inline"><a href="https://www.instagram.com/new.palm/" class="icon-link"><i class="fa fa-instagram"></i></a></li>
+                            <li class="d-inline"><a href="https://soundcloud.com/newpalm" class="icon-link"><i class="fa fa-soundcloud"></i></a></li>
+                            <li class="d-inline"><a href="https://newpalm.bandcamp.com/" class="icon-link"><i class="fa fa-bandcamp"></i></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- RELEASES ----------------------------------------------------------------->
+                    <button class="collapsible mobile">RELEASES</button>
+                    <div class="section_content" id="releases_mobile">
+                        {% include releases.html
+                            mobile=true %}
+                    </div>
+
+                    <!-- MIXES -------------------------------------------------------------------->
+                    <button class="collapsible mobile">MIXES</button>
+                    <div class="section_content" id="mixes_mobile">
+                        {% include mixes.html 
+                            mobile=true %}
+                    </div>
+
+                    <!-- EVENTS ------------------------------------------------------------------->
+                    <button class="collapsible mobile">EVENTS</button>
+                    <div class="section_content" id="events_mobile">
+                        {% include events.html 
+                            mobile=true %}
+                    </div>
+
+                    <!-- RESIDENTS ---------------------------------------------------------------->
+                    <button class="collapsible mobile">RESIDENTS</button>
+                    <div class="section_content" id="residents_mobile">
+                        {% include residents.html 
+                            mobile=true %}
+                    </div>
+                </div>
+            </main>
+
+            <!-- FOOTER -->
+            <footer class="mobile">
+                <p>
+                    Website designed and built by <a class="footer-link" href="https://www.instagram.com/clrkng">Claire Kuang</a>.
+                </p>
+            </footer>
+        </div>
+    </div>
+
+  </div>
+
+  <div id='desktop-root'>
+
+    <!-- Content -->
+    <div class="container-fluid h-10" id="desktop_content">
+        <div id="all_overlay">
+            <!-- HEADER -->
+            <nav class="navbar sticky-top">
+                <div class="flex-column">
+                    <a href="" class="navbar-link">NEW  PALM</a>
+                    <p id="about_desktop">
+                        Independent record label and off-kilter event series, in and around Los Angeles since 2018.
+                    </p>
+                    <ul id="icons">
+                        <li class="d-inline"><a href="https://www.instagram.com/new.palm/" class="icon-link"><i class="fa fa-instagram"></i></a></li>
+                        <li class="d-inline"><a href="https://soundcloud.com/newpalm" class="icon-link"><i class="fa fa-soundcloud"></i></a></li>
+                        <li class="d-inline"><a href="https://newpalm.bandcamp.com/" class="icon-link"><i class="fa fa-bandcamp"></i></a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main>
+                <div class="content-main desktop">
+
+                    <!-- RELEASES ----------------------------------------------------------------->
+                    <button class="collapsible desktop">RELEASES</button>
+                    <div class="section_content" id="releases">
+                        {% include releases.html
+                            mobile=false %}
+                    </div>
+                
+                    <!-- MIXES -------------------------------------------------------------------->
+                    <button class="collapsible desktop">MIXES</button>
+                    <div class="section_content" id="mixes">
+                        {% include mixes.html 
+                            mobile=false %}
+                    </div>
+
+                    <!-- EVENTS ------------------------------------------------------------------->
+                    <button class="collapsible desktop">EVENTS</button>
+                    <div class="section_content" id="events">
+                        {% include events.html
+                            mobile=false %}
+                    </div>
+
+                    <!-- RESIDENTS ---------------------------------------------------------------->
+                    <button class="collapsible desktop">RESIDENTS</button>
+                    <div class="section_content" id="residents">
+                        {% include residents.html
+                            mobile=false %}
+                    </div>
+                </div>
+            </main>
+
+            <!-- FOOTER -->
+            <footer class="desktop">
+                <p>
+                    Website designed and built by <a class="footer-link" href="https://www.instagram.com/clrkng">Claire Kuang</a>.
+                </p>
+            </footer>
+        </div>
+    </div>
+
+  </div>
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+</body>
+
+<!-- Custom JS -->
+<script src="js/main.js"></script>
+
+</html>

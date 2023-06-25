@@ -1,0 +1,45 @@
+{% comment %}
+  Required Arguments:
+  - mobile (boolean)
+
+  Use it like:
+
+  {% include events.html
+    mobile=true
+  %}
+{% endcomment %}
+
+{% assign events = site.events | sort: 'year' | reverse %}
+
+<ul class="section-list">
+  {% for event in events %}
+  <li>
+    {% if include.mobile %}
+      <div class="list-item collapsible-item">
+        <div class="list-text left">{{ event.name }}</div>
+        <div class="list-text">{{  event.location }} </div>
+        <div class="list-text right mobile">{{ event.year }}</div>
+      </div>
+      <div class="list-content vertical">
+        <img class="list-image-wide" src="{{ event.image }}">
+        <div class="list-info" style="margin-top: 20px;">
+          {{ event.description }}
+        </div>
+      </div>
+    {% else %}
+      <div class="list-item collapsible-item">
+        <div class="list-text left">{{ event.name }}</div>
+        <div class="list-text">{{  event.location }} </div>
+        <div class="list-text right">{{ event.year }}</div>
+      </div>
+      <div class="list-content vertical">
+        <img class="list-image-wide" src="{{ event.image }}">
+        <div class="list-info" style="margin-top: 20px;">
+          {{ event.description }}
+        </div>
+      </div>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+
