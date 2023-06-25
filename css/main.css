@@ -99,10 +99,11 @@ nav.mobile {
     font-size: 26px;
     padding: 6px;
     vertical-align: bottom;
-}
-.icon-link:hover {
-    color: #1b022953;
-    text-decoration: none;
+
+    &:hover {
+        color: #1b022953;
+        text-decoration: none;
+    }
 }
 
 .flex-column {
@@ -292,6 +293,17 @@ main {
     width: 100%;
 }
 
+.list-text.left {
+    margin-left: 0px;
+}
+
+.list-text.right {
+    margin-left: 80px;
+}
+.list-text.right.mobile {
+    margin-left: 30px;
+}
+
 .list-content {
     display: flex;
     color:#ffffff;
@@ -315,4 +327,16 @@ main {
     width:100%;
     object-fit: cover;
     aspect-ratio: 16/9;
+}
+
+.icon-link-small {
+    color: rgb(255, 255, 255);
+    font-weight: 300;
+    font-size: 20px;
+    padding: 1px;
+
+    &:hover {
+        color: #ffffff53;
+        text-decoration: none;
+    }
 }

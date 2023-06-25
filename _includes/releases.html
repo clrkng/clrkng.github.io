@@ -16,9 +16,9 @@
   <li>
     {% if include.mobile %}
       <div class="list-item collapsible-item">
-        <div class="list-text" style="padding-right: 10px">{{ release.catalogue }}</div>
+        <div class="list-text left">{{ release.catalogue }}</div>
         <div class="list-text">{{ release.artist }} </div>
-        <div class="list-text" style="padding-left: 30px;">{{ release.name }}</div>
+        <div class="list-text right mobile">{{ release.name }}</div>
       </div>
       <div class="list-content vertical">
         <div class="list-info" style="margin: 20px;">
@@ -45,11 +45,11 @@
       </div>
     {% else %}
       <div class="list-item collapsible-item">
-        <div class="list-text" style="padding-right: 10px">{{ release.catalogue }}</div>
+        <div class="list-text left">{{ release.catalogue }}</div>
         <div class="list-text">{{ release.artist }} </div>
         <div class="list-text">{{ release.name }}</div>
         <div class="list-text">{{ release.distribution }}</div>
-        <div class="list-text" style="padding-left: 100px;">{{ release.day }}</div>
+        <div class="list-text right">{{ release.day }}</div>
       </div>
       <div class="list-content">
         <div style="margin-right: 20px;">

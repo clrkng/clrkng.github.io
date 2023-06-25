@@ -3,13 +3,28 @@
 <ul class="section-list">
   {% for resident in residents %}
   <li>
-    <div class="list-item collapsible-item">
-      <div class="list-text" style="padding-right: 10px">{{ resident.name }}</div>
-      <div class="list-text">{{  resident.location }} </div>
-    </div>
-    <div class="list-content">
-      {{ resident.description }}
-    </div>
+    {% if include.mobile %}
+      <div class="list-item collapsible-item">
+        <div class="list-text left">{{ resident.name }}</div>
+        <div class="list-text right mobile">
+          <ul id="icons">
+            <li class="d-inline"><a href="{{ resident.instagram }}" class="icon-link-small"><i class="fa fa-instagram"></i></a></li>
+            <li class="d-inline"><a href="{{ resident.soundcloud }}" class="icon-link-small"><i class="fa fa-soundcloud"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    {% else %}
+      <div class="list-item collapsible-item">
+        <div class="list-text left">{{ resident.name }}</div>
+        <div class="list-text">{{  resident.location }} </div>
+        <div class="list-text right">
+          <ul>
+            <li class="d-inline"><a href="{{ resident.instagram }}" class="icon-link-small"><i class="fa fa-instagram"></i></a></li>
+            <li class="d-inline"><a href="{{ resident.soundcloud }}" class="icon-link-small"><i class="fa fa-soundcloud"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    {% endif %}
   </li>
   {% endfor %}
 </ul>

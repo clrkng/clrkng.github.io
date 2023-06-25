@@ -3,17 +3,31 @@
 <ul class="section-list">
   {% for mix in mixes %}
   <li>
-    <div class="list-item collapsible-item">
-      <div class="list-text" style="padding-right: 10px">{{ mix.number }}</div>
-      <div class="list-text">{{ mix.name }} </div>
-      <div class="list-text" style="padding-left: 100px;">{{ mix.year }}</div>
-    </div>
-    <div class="list-content">
-        {{ mix.content }}
-      <div class="list-info" style="margin-top: 20px;">
-        {{ mix.description }}
+    {% if include.mobile %}
+      <div class="list-item collapsible-item">
+        <div class="list-text left">{{ mix.number }}</div>
+        <div class="list-text">{{ mix.name }} </div>
+        <div class="list-text right mobile">{{ mix.year }}</div>
       </div>
-    </div>
+      <div class="list-content">
+          {{ mix.content }}
+        <div class="list-info" style="margin-top: 20px;">
+          {{ mix.description }}
+        </div>
+      </div>
+    {% else %}
+      <div class="list-item collapsible-item">
+        <div class="list-text left">{{ mix.number }}</div>
+        <div class="list-text">{{ mix.name }} </div>
+        <div class="list-text right">{{ mix.year }}</div>
+      </div>
+      <div class="list-content">
+          {{ mix.content }}
+        <div class="list-info" style="margin-top: 20px;">
+          {{ mix.description }}
+        </div>
+      </div>
+    {% endif %}
   </li>
   {% endfor %}
 </ul>
